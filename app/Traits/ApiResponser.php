@@ -20,9 +20,9 @@ use Illuminate\Database\Eloquent\Collection;
        return response()->json(['error'=>$message,'code'=>$code],$code); 
      }
 
-    public function show_all(Collection $collection,$code=200)
+    public function show_all($data,$code=200)
     {
-        return $this->success_response(['data'=>$collection],$code);
+        return $this->success_response($data,$code);
     }
 
     public function show_one(Model $model,$code=200)
