@@ -32,7 +32,7 @@ class Product extends Model
     
     public function is_available()
     {
-        return $this->status = Product::AVAILABLE_PRODUCT;
+        return $this->status == Product::AVAILABLE_PRODUCT;
     }
 
     public function categories()
