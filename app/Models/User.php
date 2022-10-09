@@ -84,7 +84,7 @@ class User extends Authenticatable
     public static function generate_verification_token()
     {
        
-        return   Str::random(40);
+        return   Str::random(6);
         
     }
 
