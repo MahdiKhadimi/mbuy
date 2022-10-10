@@ -22,6 +22,7 @@ use Illuminate\Database\Eloquent\Collection;
 
     public function show_all($data,$code=200)
     {
+        $data = $this->sort_data($data);
         return $this->success_response(['data'=>$data],$code);
     }
 
@@ -35,5 +36,13 @@ use Illuminate\Database\Eloquent\Collection;
         return $this->success_response(['data'=>$message],$code);
     }
 
+    protected function sort_data(Collection $collection)
+    {
+         if(request()->has('sort_by')){
+             $attribute = request()->sort_by;
+             $collection = $collection->sortBy($attribute);
+         }
+         return $collection;
+    }
  }
  
