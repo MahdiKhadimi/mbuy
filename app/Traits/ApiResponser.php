@@ -2,6 +2,7 @@
 namespace App\Traits ;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Pagination\LengthAwarePaginator;
  
 
  /**
@@ -23,6 +24,7 @@ use Illuminate\Database\Eloquent\Collection;
     public function show_all($data,$code=200)
     {
         $data = $this->sort_data($data);
+        $data = $this->paginate($data);
         return $this->success_response(['data'=>$data],$code);
     }
 
@@ -44,5 +46,31 @@ use Illuminate\Database\Eloquent\Collection;
          }
          return $collection;
     }
+
+    protected function paginate(Collection $collection)
+    {
+         $current_page = LengthAwarePaginator::resolveCurrentPage();
+
+         $per_page = 15;
+         $offset = ($current_page-1)*$per_page;
+
+         $results = $collection->slice($offset,$per_page)->values();
+
+         $paginator = new LengthAwarePaginator(
+             $results,
+             $collection->count(),
+             $per_page,      
+             $current_page,
+              [
+             'path' => LengthAwarePaginator::resolveCurrentPath(),
+              ]             
+        );
+
+        $paginator->appends(request()->all());
+
+        return $paginator;
+
+    }
+
  }
  
