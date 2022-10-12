@@ -1,6 +1,11 @@
 <?php
 namespace App\Traits ;
+use App\Models\User;
+use Spatie\Fractal\Fractal;
+use App\Transformers\UserTransformer;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
+use Doctrine\Inflector\Rules\Transformation;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
  
@@ -23,14 +28,22 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     public function show_all($data,$code=200)
     {
+        $transformer = $data->first()->transformer;
+
         $data = $this->sort_data($data);
         $data = $this->paginate($data);
+        $data = $this->transform_data($data,$transformer);
+        $data = $this->cache_response($data);
         return $this->success_response(['data'=>$data],$code);
     }
 
     public function show_one(Model $model,$code=200)
     {
-        return $this->success_response(['data'=>$model],$code);
+        $transformer = $model->transformer;
+        $data = $this->transform_data($model,$transformer);
+        
+        $data = $this->cache_response($data);
+        return $this->success_response(['data'=>$data],$code);
     }
     
     public function show_message($message,$code=200)
@@ -72,5 +85,21 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     }
 
+    protected function transform_data($data,$transformer)
+    {
+        $transformation = fractal($data,new $transformer);
+        
+        return $transformation->toArray();
+       
+    }
+
+    public function cache_response($data)
+    {
+        $url = request()->url();
+        return Cache::remember($url, 30/60,function () use($data){
+            return $data;
+        });   
+    }
+    
  }
  

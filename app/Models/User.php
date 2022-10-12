@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Models\User;
+
 use Illuminate\Support\Str;
 use Laravel\Sanctum\HasApiTokens;
+use App\Transformers\UserTransformer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -37,7 +38,7 @@ class User extends Authenticatable
         'verification_token',
         'admin'
     ];
-
+    public $transformer = UserTransformer::class;
     protected $table = 'users';
     /**
      * The attributes that should be hidden for serialization.
