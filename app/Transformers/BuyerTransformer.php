@@ -40,6 +40,24 @@ class BuyerTransformer extends TransformerAbstract
             'creationDate'=>$buyer->created_at,
             'lastChange'=>$buyer->updated_at,
             'deleteDate'=> isset($buyer->deleted_at)?(string)$buyer->deleted_at:null,
+            'links'=>[
+                [
+                    'rel'=>'self',
+                    'href'=>route('buyers.show',$buyer->id),
+                ],
+                [
+                    'rel'=>'categories',
+                    'href'=>route('buyers.categories.index',$buyer->id),
+                ],
+                [
+                    'rel'=>'products',
+                    'href'=>route('buyers.products.index',$buyer->id),
+                ],
+                [
+                    'rel'=>'transactions',
+                    'href'=>route('buyers.transactions.index',$buyer->id),
+                ],
+            ]
         ];
     }
 }
