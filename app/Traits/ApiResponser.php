@@ -6,7 +6,7 @@ use App\Transformers\UserTransformer;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\Model;
 use Doctrine\Inflector\Rules\Transformation;
-use Illuminate\Database\Eloquent\Collection;
+use Illuminate\Support\Collection;
 use Illuminate\Pagination\LengthAwarePaginator;
  
 
@@ -28,10 +28,10 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     public function show_all($data,$code=200)
     {
-        $transformer = $data->first()->transformer;
+        $transformer =$data->first()->transformer;
 
-        $data = $this->sort_data($data);
-        $data = $this->paginate($data);
+        // $data = $this->sort_data($data);
+        $data = $this->paginate( $data);
         $data = $this->transform_data($data,$transformer);
         $data = $this->cache_response($data);
         return $this->success_response(['data'=>$data],$code);
@@ -51,7 +51,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
         return $this->success_response(['data'=>$message],$code);
     }
 
-    protected function sort_data(Collection $collection)
+    protected function sort_data($collection)
     {
          if(request()->has('sort_by')){
              $attribute = request()->sort_by;
