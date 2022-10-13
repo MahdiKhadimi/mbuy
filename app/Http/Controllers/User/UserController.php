@@ -16,7 +16,7 @@ class UserController extends ApiController
     /**
      * Display a listing of the user.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function index()
     {
@@ -29,7 +29,7 @@ class UserController extends ApiController
      * Store a newly created user in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function store(Request $request)
     {
@@ -54,7 +54,7 @@ class UserController extends ApiController
      * Display the specified user.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function show(User $user)
     {
@@ -68,7 +68,7 @@ class UserController extends ApiController
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function update(UpdateUserRequest $request, User $user)
     {
@@ -106,7 +106,7 @@ class UserController extends ApiController
      * Remove the specified user from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function destroy(User $user)
     {
