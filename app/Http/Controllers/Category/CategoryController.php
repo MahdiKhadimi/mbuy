@@ -11,7 +11,7 @@ class CategoryController extends ApiController
     /**
      * Display a listing of the category.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function index()
     {
@@ -24,7 +24,7 @@ class CategoryController extends ApiController
      * Store a newly created category in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function store(Request $request)
     {
@@ -45,7 +45,7 @@ class CategoryController extends ApiController
      * Display the specified category.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function show(Category $category)
     {
@@ -57,7 +57,7 @@ class CategoryController extends ApiController
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function update(Request $request, Category $category)
     {
@@ -72,7 +72,7 @@ class CategoryController extends ApiController
      * Remove the specified category from storage.
      *
      * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function destroy(Category $category)
     {

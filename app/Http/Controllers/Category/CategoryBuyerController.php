@@ -11,7 +11,7 @@ class CategoryBuyerController extends ApiController
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\jsonResponse
      */
     public function index(Category $category)
     {
@@ -24,8 +24,7 @@ class CategoryBuyerController extends ApiController
         ->pluck('buyer')
         ->unique('id')
         ->values();
-        
-
+    
         return $this->show_all($buyers);
 
 
