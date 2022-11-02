@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class SellerBuyerController extends ApiController
 {
-    /**
-     * Display a listing of the seller buyer.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Seller $seller)
     {
         $buyers = $seller->products()
@@ -22,16 +17,9 @@ class SellerBuyerController extends ApiController
         ->pluck('transactions')
         ->collapse()
         ->pluck('buyer');
-      
         
-
-        
-        
-        
-
         return $this->show_all($buyers);
         
     }
 
-  
 }

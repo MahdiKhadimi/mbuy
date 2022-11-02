@@ -5,16 +5,13 @@ namespace App\Http\Controllers\Seller;
 use App\Models\Seller;
 use App\Models\Product;
 use Illuminate\Http\Request;
-use App\Http\Controllers\ApiController;
 use App\Http\Requests\ProductRequest;
+use App\Http\Controllers\ApiController;
+use Illuminate\Support\Facades\Storage;
 
 class SellerProductController extends ApiController
 {
-    /**
-     * Display a listing of the seller product.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(Seller $seller )
     {
         $products = $seller->products; 
@@ -22,12 +19,6 @@ class SellerProductController extends ApiController
         return $this->show_all($products);
     }
 
-    /**
-     * Store a newly created seller product in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(ProductRequest $request, Seller $seller)
     {
         
@@ -35,14 +26,6 @@ class SellerProductController extends ApiController
         
     }
 
-
-
-    /**
-     * Remove the specified seller product from storage.
-     *
-     * @param  \App\Models\Seller  $seller
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Seller $seller,Product $product)
     {
         if(Storage::exists($product->image)){

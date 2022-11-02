@@ -18,7 +18,6 @@ class CategoryTransactionController extends ApiController
         ->unique()
         ->values()
         ->collapse();
-        
 
         return $this->show_all($transactions);
     }

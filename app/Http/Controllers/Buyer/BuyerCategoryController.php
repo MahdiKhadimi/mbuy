@@ -8,11 +8,7 @@ use App\Http\Controllers\ApiController;
 
 class BuyerCategoryController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(Buyer $buyer)
     {
         $categories = $buyer->transactions()
@@ -24,6 +20,5 @@ class BuyerCategoryController extends ApiController
         ->values();
         return $this->show_all($categories);
     }
-
     
 }

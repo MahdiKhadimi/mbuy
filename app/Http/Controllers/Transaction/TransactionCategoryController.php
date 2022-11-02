@@ -9,11 +9,7 @@ use App\Http\Controllers\ApiController;
 
 class TransactionCategoryController extends ApiController
 {
-    /**
-     * Display a listing of the transaction category.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function index(Transaction $transaction)
     {
         
@@ -22,5 +18,4 @@ class TransactionCategoryController extends ApiController
        return $this->show_all($categories);
     }
 
-  
 }

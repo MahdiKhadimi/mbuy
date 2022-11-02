@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class CategorySellerController extends ApiController
 {
-    /**
-     * Display a listing of the category seller.
-     *
-     * @return \Illuminate\Http\jsonResponse
-     */
     public function index(Category $category)
     {
         $sellers = $category->products()
@@ -22,10 +17,6 @@ class CategorySellerController extends ApiController
         ->unique()
         ->values();
         
-
         return $this->show_all($sellers);
-
     }
-
-  
 }

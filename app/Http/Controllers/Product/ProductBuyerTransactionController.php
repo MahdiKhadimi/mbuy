@@ -13,12 +13,7 @@ use App\Http\Requests\ProductBuyerTransactionRequest;
 class ProductBuyerTransactionController extends ApiController
 {
    
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(ProductBuyerTransactionRequest $request,Product $product,User $buyer)
     {
      
@@ -55,8 +50,5 @@ class ProductBuyerTransactionController extends ApiController
             return $this->show_one($transaction,201);
         });
 
-
     }
-
-   
 }

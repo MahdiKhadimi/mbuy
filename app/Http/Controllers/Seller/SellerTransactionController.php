@@ -8,11 +8,7 @@ use Illuminate\Http\Request;
 
 class SellerTransactionController extends ApiController
 {
-    /**
-     * Display a listing of the seller transaction.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function index(Seller $seller)
     {
         $transactions = $seller->products()
@@ -20,12 +16,8 @@ class SellerTransactionController extends ApiController
         ->get()
         ->pluck('transactions')
         ->collapse();
-    
-
-        
 
         return $this->show_all($transactions);
     }
-
    
 }

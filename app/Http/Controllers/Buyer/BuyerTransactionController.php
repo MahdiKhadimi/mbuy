@@ -8,11 +8,7 @@ use App\Http\Controllers\ApiController;
 
 class BuyerTransactionController extends ApiController
 {
-    /**
-     * Display a listing of the buyer transaction
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function index(Buyer $buyer)
     {
         

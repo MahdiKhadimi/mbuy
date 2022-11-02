@@ -20,11 +20,7 @@ class UserController extends ApiController
 
          $this->middleware('transform.input:'.UserTransformer::class)->only('store','update');
      }
-    /**
-     * Display a listing of the user.
-     *
-     * @return \Illuminate\Http\jsonResponse
-     */
+ 
     public function index()
     {
         $users = User::orderBy('id','desc')->get();
@@ -32,12 +28,6 @@ class UserController extends ApiController
         return $this->show_all($users);
     }
 
-    /**
-     * Store a newly created user in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\jsonResponse
-     */
     public function store(Request $request)
     {
         $data = $request->all();
@@ -57,12 +47,6 @@ class UserController extends ApiController
 
     }
 
-    /**
-     * Display the specified user.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\jsonResponse
-     */
     public function show(User $user)
     {
         
@@ -70,13 +54,6 @@ class UserController extends ApiController
 
     }
 
-    /**
-     * Update the specified user in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\jsonResponse
-     */
     public function update(UpdateUserRequest $request, User $user)
     {
          if($request->has('name')){
@@ -109,12 +86,6 @@ class UserController extends ApiController
 
     }
 
-    /**
-     * Remove the specified user from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\JsonResponse
-     */
     public function destroy(User $user)
     {
         $user->delete();

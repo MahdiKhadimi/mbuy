@@ -8,11 +8,6 @@ use Illuminate\Http\Request;
 
 class ProductBuyerController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Product $product)
     {
         $buyers = $product->transactions()
@@ -22,7 +17,4 @@ class ProductBuyerController extends ApiController
 
         return $this->show_all($buyers);
     }
-
-    
-   
 }

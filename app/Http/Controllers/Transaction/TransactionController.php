@@ -9,11 +9,7 @@ use App\Http\Controllers\ApiController;
 
 class TransactionController extends ApiController
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\jsonResponse
-     */
+   
     public function index()
     {
         $transactions = Transaction::all();
@@ -21,12 +17,6 @@ class TransactionController extends ApiController
         return $this->show_all($transactions);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Transaction  $transaction
-     * @return \Illuminate\Http\jsonResponse
-     */
     public function show(Transaction $transaction)
     {
         return $this->show_one($transaction);
