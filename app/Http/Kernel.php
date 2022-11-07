@@ -43,6 +43,7 @@ class Kernel extends HttpKernel
             'signature:X-Application-Header',
             // \Laravel\Sanctum\Http\Middleware\EnsureFrontendRequestsAreStateful::class,
             'throttle:api',
+            'cors',
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ],
     ];
@@ -60,6 +61,7 @@ class Kernel extends HttpKernel
         'auth.session' => \Illuminate\Session\Middleware\AuthenticateSession::class,
         'cache.headers' => \Illuminate\Http\Middleware\SetCacheHeaders::class,
         'can' => \Illuminate\Auth\Middleware\Authorize::class,
+         'cors'=>\Barryvdh\Cors\HandleCors::class,
         'guest' => \App\Http\Middleware\RedirectIfAuthenticated::class,
         'client.credentials'=>\Laravel\Passport\Http\Middleware\CheckClientCredentials::class,
         'signature' => \App\Http\Middleware\SignatureMiddleware::class,
