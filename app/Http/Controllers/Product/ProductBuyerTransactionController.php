@@ -25,7 +25,7 @@ class ProductBuyerTransactionController extends ApiController
     {
      
         if($buyer->id==$product->seller->id){
-            return $this->error_respone('Sorry You don\'t allow to continue purchase',409 );
+            return $this->errorResponse('Sorry You don\'t allow to continue purchase',409 );
         }
 
         if(!$buyer->is_verified()){

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->bigInteger('quantity');
             $table->unsignedBigInteger('product_id');
             $table->unsignedBigInteger('buyer_id');
+            $table->string('currency')->default('AFG');
             $table->foreign('product_id')->on('products')->references('id');
             $table->foreign('buyer_id')->on('users')->references('id');
             $table->softDeletes();

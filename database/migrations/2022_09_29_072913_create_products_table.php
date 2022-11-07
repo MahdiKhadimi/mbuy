@@ -18,6 +18,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description',1000);
+            $table->integer('price')->default(0);
+            $table->string('currency')->default('AFG');
             $table->unsignedBigInteger('quantity');
             $table->unsignedBigInteger('seller_id');
             $table->string('status')->default(Product::UNAVAILABLE_PRODUCT);

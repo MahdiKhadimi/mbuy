@@ -22,6 +22,7 @@ class TransactionFactory extends Factory
         $buyer= User::all()->except($seller->id)->random();
         return [
             'quantity'=>$this->faker->numberBetween(1,3),
+            'currency'=>$this->faker->randomElement(['AFG','USD']),
             'product_id'=>$seller->products->random()->id,
             'buyer_id'=>$buyer->id
         ];

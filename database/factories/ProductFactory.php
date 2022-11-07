@@ -23,6 +23,8 @@ class ProductFactory extends Factory
             'description'=>$this->faker->paragraph(1),
             'image'=>$this->faker->randomElement(['1.PNG', '2.PNG', '3.jpg']),
             'quantity'=>$this->faker->numberBetween(1,10),
+            'currency'=> $currency=$this->faker->randomElement(['AFG','USD']),
+            'price'=> $currency==='AFG'?$this->faker->numberBetween(100,1000):$this->faker->numberBetween(10,100),
             'status'=>$this->faker->randomElement([Product::AVAILABLE_PRODUCT,Product::UNAVAILABLE_PRODUCT]),
             'seller_id'=>User::all()->random()->id
         ];

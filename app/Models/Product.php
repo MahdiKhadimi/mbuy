@@ -22,6 +22,8 @@ class Product extends Model
         'name',
         'description',
         'status',
+        'price',
+        'currency',
         'image',
         'seller_id',
         'quantity'
