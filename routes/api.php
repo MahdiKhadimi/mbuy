@@ -82,5 +82,3 @@ route::post('login',[AuthController::class,'login'])->name('login.logic');
 Route::post('register', [AuthController::class, 'register']);
 
 Route::post('oauth/token', [AccessTokenController::class,'issueToken']);
-
-// route::get('login',[AuthController::class,'login'])->name('login');

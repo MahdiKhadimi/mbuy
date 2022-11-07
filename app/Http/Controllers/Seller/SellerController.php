@@ -21,14 +21,14 @@ class SellerController extends ApiController
         $this->allowedAdminAction(); 
         $sellers = Seller::has('products')->get();
 
-        return $this->show_all($sellers);
+        return $this->showAll($sellers);
 
     }
   
     public function show(Seller $seller)
     {
     
-        return $this->show_one($seller);
+        return $this->showOne($seller);
     }
 
     public static function booted()

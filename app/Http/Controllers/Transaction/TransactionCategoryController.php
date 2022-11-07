@@ -19,7 +19,7 @@ class TransactionCategoryController extends ApiController
         
         $categories = $transaction->product->categories;
 
-       return $this->show_all($categories);
+       return $this->showAll($categories);
     }
 
 }

@@ -19,7 +19,7 @@ class BuyerTransactionController extends ApiController
         
         $transactions = $buyer->transactions;
 
-        return $this->show_all($transactions);
+        return $this->showAll($transactions);
         
     }
 

@@ -32,7 +32,7 @@ class AuthController extends Controller
         return response()->json(['token' => $token], 200);
     }
  
-    function login_form(){
+    function loginForm(){
         
     }
     public function login(Request $request)

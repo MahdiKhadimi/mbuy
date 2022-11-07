@@ -19,7 +19,7 @@ class TransformInput
         $transfor_data = [];
         foreach ($request->request->all() as $input => $value) {
 
-            $transfor_data[$transformer::original_attribute($input)]=$value;
+            $transfor_data[$transformer::originalAttribute($input)]=$value;
        
         }
         

@@ -13,7 +13,7 @@ class CategoryProductController extends ApiController
     {
         $products = $category->products;
 
-         return $this->show_all($products);
+         return $this->showAll($products);
          
     }
 

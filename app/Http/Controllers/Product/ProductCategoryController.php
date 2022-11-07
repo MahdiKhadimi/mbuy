@@ -18,7 +18,7 @@ class ProductCategoryController extends ApiController
     {
         $categories = $product->categories;
 
-        return $this->show_all($categories);
+        return $this->showAll($categories);
     }
    
 
@@ -28,19 +28,19 @@ class ProductCategoryController extends ApiController
          $product->categories()
         ->syncWithoutDetaching([$category->id]);
 
-        return $this->show_all($product->categories);
+        return $this->showAll($product->categories);
     }
 
  
     public function destroy(Product $product,Category $category)
     {
         if(!$product->categories()->find($category->id)){
-            return $this->error_response('The category doesn\'n exist on the specific product',422);
+            return $this->errorResponse('The category doesn\'n exist on the specific product',422);
         }
 
         $product->categories()->detach($category->id);
         
-        return $this->show_all($product->categories);
+        return $this->showAll($product->categories);
         
     }
 }

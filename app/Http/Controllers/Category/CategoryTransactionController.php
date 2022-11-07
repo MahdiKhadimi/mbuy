@@ -20,6 +20,6 @@ class CategoryTransactionController extends ApiController
         ->values()
         ->collapse();
 
-        return $this->show_all($transactions);
+        return $this->showAll($transactions);
     }
 }

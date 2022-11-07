@@ -18,7 +18,7 @@ class TransactionSellerController extends ApiController
     {
         $seller = $transaction->product->seller;
 
-        return $this->show_one($seller);
+        return $this->showOne($seller);
     }
     
 }

@@ -22,11 +22,11 @@ class TransactionController extends ApiController
         $this->allowedAdminAction(); 
         $transactions = Transaction::all();
         
-        return $this->show_all($transactions);
+        return $this->showAll($transactions);
     }
 
     public function show(Transaction $transaction)
     {
-        return $this->show_one($transaction);
+        return $this->showOne($transaction);
     }
 }

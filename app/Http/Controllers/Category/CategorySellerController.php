@@ -17,6 +17,6 @@ class CategorySellerController extends ApiController
         ->unique()
         ->values();
         
-        return $this->show_all($sellers);
+        return $this->showAll($sellers);
     }
 }

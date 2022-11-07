@@ -21,13 +21,13 @@ class BuyerController extends ApiController
         $this->allowedAdminAction();  
         $buyers = Buyer::has('transactions')->get();    
          
-        return $this->show_all($buyers);
+        return $this->showAll($buyers);
     }
 
     public function show(Buyer $buyer)
     {
       
-        return $this->show_one($buyer);
+        return $this->showOne($buyer);
     }
 
 }

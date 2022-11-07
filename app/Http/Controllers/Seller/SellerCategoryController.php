@@ -23,7 +23,7 @@ class SellerCategoryController extends ApiController
         ->pluck('categories')
         ->collapse();
         
-        return $this->show_all($categories);
+        return $this->showAll($categories);
     }
 
 

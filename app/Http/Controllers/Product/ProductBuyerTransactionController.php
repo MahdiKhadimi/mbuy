@@ -29,19 +29,19 @@ class ProductBuyerTransactionController extends ApiController
         }
 
         if(!$buyer->is_verified()){
-            return $this->error_response("The buyer must be verified!",409);
+            return $this->errorResponse("The buyer must be verified!",409);
         }
 
         if(!$product->seller->is_verified()){
-            return $this->error_response("The seller must be verified!",409);
+            return $this->errorResponse("The seller must be verified!",409);
         }
 
         if(!$product->is_available()){
-            return $this->error_response("The product is not available!",409);
+            return $this->errorResponse("The product is not available!",409);
         }
         
         if($product->quantity < $request->quantity){
-            return $this->error_response("There is n't to much product you want to buy!",409);            
+            return $this->errorResponse("There is n't to much product you want to buy!",409);            
         }
 
         return DB::transaction(function () use($request,$product,$buyer) {
@@ -54,7 +54,7 @@ class ProductBuyerTransactionController extends ApiController
                 'buyer_id'=>$buyer->id
             ]);
 
-            return $this->show_one($transaction,201);
+            return $this->showOne($transaction,201);
         });
 
     }

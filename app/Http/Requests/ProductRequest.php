@@ -32,7 +32,7 @@ class ProductRequest extends FormRequest
         ];
     }
 
-    public function handle_product_store($seller)
+    public function handleProductStore($seller)
     {   
         $product = $this->validated();
         

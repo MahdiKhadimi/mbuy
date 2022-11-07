@@ -16,42 +16,42 @@ use Illuminate\Pagination\LengthAwarePaginator;
  trait ApiResponser
  {
 
-     private function success_response($data,$code)
+     private function successResponse($data,$code)
      {
          return response()->json($data,$code);
      }
 
-     protected function error_response($message,$code)
+     protected function errorResponse($message,$code)
      {
        return response()->json(['error'=>$message,'code'=>$code],$code); 
      }
 
-    public function show_all($data,$code=200)
+    public function showAll($data,$code=200)
     {
         $transformer =$data->first()->transformer;
 
-        $data = $this->sort_data($data);
+        $data = $this->sortData($data);
         $data = $this->paginate( $data);
-        $data = $this->transform_data($data,$transformer);
-        $data = $this->cache_response($data);
-        return $this->success_response(['data'=>$data],$code);
+        $data = $this->transformData($data,$transformer);
+        $data = $this->cacheResponse($data);
+        return $this->successResponse(['data'=>$data],$code);
     }
 
-    public function show_one(Model $model,$code=200)
+    public function showOne(Model $model,$code=200)
     {
         $transformer = $model->transformer;
-        $data = $this->transform_data($model,$transformer);
+        $data = $this->transformData($model,$transformer);
         
-        $data = $this->cache_response($data);
-        return $this->success_response(['data'=>$data],$code);
+        $data = $this->cacheResponse($data);
+        return $this->successResponse(['data'=>$data],$code);
     }
     
-    public function show_message($message,$code=200)
+    public function showMessage($message,$code=200)
     {
-        return $this->success_response(['data'=>$message],$code);
+        return $this->successResponse(['data'=>$message],$code);
     }
 
-    protected function sort_data($collection)
+    protected function sortData($collection)
     {
          if(request()->has('sort_by')){
              $attribute = request()->sort_by;
@@ -85,7 +85,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
     }
 
-    protected function transform_data($data,$transformer)
+    protected function transformData($data,$transformer)
     {
         $transformation = fractal($data,new $transformer);
          
@@ -93,7 +93,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
        
     }
 
-    public function cache_response($data)
+    public function cacheResponse($data)
     {
         $url = request()->url();
         return Cache::remember($url, 30/60,function () use($data){

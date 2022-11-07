@@ -30,7 +30,7 @@ class UserController extends ApiController
         $this->allowedAdminAction(); 
         $users = User::orderBy('id','desc')->get();
 
-        return $this->show_all($users);
+        return $this->showAll($users);
     }
 
     public function store(Request $request)
@@ -47,7 +47,7 @@ class UserController extends ApiController
 
         $user = User::create($data);
 
-        return $this->show_one($user,201);
+        return $this->showOne($user,201);
 
 
     }
@@ -55,7 +55,7 @@ class UserController extends ApiController
     public function show(User $user)
     {
         
-        return $this->show_one($user);
+        return $this->showOne($user);
 
     }
 
@@ -80,14 +80,14 @@ class UserController extends ApiController
           
         if($request->has('admin')){
             if(!$user->is_verified()){
-                return $this->error_response('Only the verified users can modify the admin field ',409);
+                return $this->errorResponse('Only the verified users can modify the admin field ',409);
             }
             $user->admin = $request->admin;
         }
 
         $user->save();
         
-        return $this->show_one($user);
+        return $this->showOne($user);
     
 
     }
@@ -96,7 +96,7 @@ class UserController extends ApiController
     {
         $user->delete();
         
-        return $this->show_one($user);
+        return $this->showOne($user);
            
     }
 
@@ -108,20 +108,20 @@ class UserController extends ApiController
          $user->verified = User::VERIFIED_USER;
          $user->save();
 
-      return $this->show_message('The user has been verified successfully');
+      return $this->showMessage('The user has been verified successfully');
     }
 
     public function resend(User $user)
     {
         if($user->is_verified()){
-            return $this->error_response('The user already has verfied',409);
+            return $this->errorResponse('The user already has verfied',409);
         }
         retry(5,function() use($user){
          Mail::to($user->email)->send(new UserCreated($user));
           
         },100);
 
-        return $this->show_message('email has been sended successfully',200);
+        return $this->showMessage('email has been sended successfully',200);
 
     }
 }

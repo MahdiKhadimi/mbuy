@@ -20,7 +20,7 @@ class BuyerSellerController extends ApiController
         $sellers = $buyer->transactions()->with('product.seller')
         ->get()
         ->pluck('product.seller');
-        return $this->show_all($sellers);
+        return $this->showAll($sellers);
     }
 
 }

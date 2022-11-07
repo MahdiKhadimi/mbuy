@@ -14,7 +14,7 @@ class ProductTransactionController extends ApiController
         $this->allowedAdminAction(); 
         $transactions = $product->transactions;
 
-        return $this->show_all($transactions);
+        return $this->showAll($transactions);
         
     }
   

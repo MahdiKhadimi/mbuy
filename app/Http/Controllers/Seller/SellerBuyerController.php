@@ -24,7 +24,7 @@ class SellerBuyerController extends ApiController
         ->collapse()
         ->pluck('buyer');
         
-        return $this->show_all($buyers);
+        return $this->showAll($buyers);
         
     }
 

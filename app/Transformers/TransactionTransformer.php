@@ -61,7 +61,7 @@ class TransactionTransformer extends TransformerAbstract
             
         ];
     }
-    public static function original_attribute($index)
+    public static function originalAttribute($index)
     {
         $attributes = [
             'id'=>'identifier',

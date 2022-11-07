@@ -16,6 +16,6 @@ class ProductBuyerController extends ApiController
         ->get()
         ->pluck('buyer');
 
-        return $this->show_all($buyers);
+        return $this->showAll($buyers);
     }
 }

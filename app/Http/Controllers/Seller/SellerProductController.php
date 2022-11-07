@@ -22,13 +22,13 @@ class SellerProductController extends ApiController
     {
         $products = $seller->products; 
 
-        return $this->show_all($products);
+        return $this->showAll($products);
     }
 
     public function store(ProductRequest $request, Seller $seller)
     {
         
-        return $this->show_all($request->handle_product_store($seller));       
+        return $this->showAll($request->handleProductStore($seller));       
         
     }
 
@@ -40,7 +40,7 @@ class SellerProductController extends ApiController
         
         $product->delete();
         
-        return $this->show_one($product);
+        return $this->showOne($product);
         
     }
 }

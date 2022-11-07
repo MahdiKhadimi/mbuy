@@ -25,21 +25,21 @@ class ProductController extends ApiController
     {
         $products = Product::all();
 
-        return $this->show_all($products);
+        return $this->showAll($products);
     }
 
  
     public function store(ProductRequest $request,User $seller)
     {
      
-        $product = $this-> handle_product_store($seller);
+        $product = $this-> handleProductStore($seller);
 
-        return $this->show_one($product,201);
+        return $this->showOne($product,201);
     }
    
     public function show(Product $product)
     {
-        return $this->show_one($product);
+        return $this->showOne($product);
     }
 
   

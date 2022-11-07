@@ -24,7 +24,7 @@ class CategoryController extends ApiController
     {
         $categories = Category::all();
 
-        return $this->show_all($categories);
+        return $this->showAll($categories);
     }
 
     public function store(Request $request)
@@ -39,14 +39,14 @@ class CategoryController extends ApiController
          
         $category = Category::create($request->all());
          
-        return $this->show_one($category,201);
+        return $this->showOne($category,201);
 
     }
 
    
     public function show(Category $category)
     {
-        return $this->show_one($category);
+        return $this->showOne($category);
     }
 
  
@@ -55,7 +55,7 @@ class CategoryController extends ApiController
         $this->allowedAdminAction(); 
         $category->update($request->all());
          
-       return  $this->show_one($category);
+       return  $this->showOne($category);
         
     }
 
@@ -64,7 +64,7 @@ class CategoryController extends ApiController
     {
         $this->allowedAdminAction(); 
         $category->delete();
-        return  $this->show_one($category);
+        return  $this->showOne($category);
     }
     
 }
