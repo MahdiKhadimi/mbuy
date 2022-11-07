@@ -19,10 +19,15 @@ class UserController extends ApiController
          parent::__construct();
 
          $this->middleware('transform.input:'.UserTransformer::class)->only('store','update');
+         $this->middleware('can,view,user')->only('show');
+         $this->middleware('can,updat,user')->only('update');
+         $this->middleware('can,delete,user')->only('destroy');
+        
      }
  
     public function index()
     {
+        $this->allowedAdminAction(); 
         $users = User::orderBy('id','desc')->get();
 
         return $this->show_all($users);
@@ -56,6 +61,7 @@ class UserController extends ApiController
 
     public function update(UpdateUserRequest $request, User $user)
     {
+        $this->allowedAdminAction(); 
          if($request->has('name')){
              $user->name = $request->name;
          } 

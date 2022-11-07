@@ -9,7 +9,11 @@ use App\Http\Controllers\ApiController;
 
 class ProductCategoryController extends ApiController
 {
-   
+  
+   public function __construct()
+   {
+       $this->middleware('can,delete-category')->only('destroy');
+   }
     public function index(Product $product)
     {
         $categories = $product->categories;

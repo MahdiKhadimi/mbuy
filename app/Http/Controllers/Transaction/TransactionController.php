@@ -10,8 +10,16 @@ use App\Http\Controllers\ApiController;
 class TransactionController extends ApiController
 {
    
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this-> middleware('can,view,transanction')->only('show');
+    }
     public function index()
     {
+        $this->allowedAdminAction(); 
         $transactions = Transaction::all();
         
         return $this->show_all($transactions);

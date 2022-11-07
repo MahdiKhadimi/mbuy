@@ -12,9 +12,10 @@ class CategoryController extends ApiController
     public function __construct()
      {
          parent::__construct();
-      
+        
       
          $this->middleware('transform.input:'.CategoryTransformer::class)->only(['store','update']);
+         $this->middleware('can,add-category')->only('store');
 
          
      }
@@ -28,6 +29,7 @@ class CategoryController extends ApiController
 
     public function store(Request $request)
     {
+        $this->allowedAdminAction(); 
          $rules = [
              'name'=>'required',
              'description'=>'required'
@@ -50,7 +52,7 @@ class CategoryController extends ApiController
  
     public function update(Request $request, Category $category)
     {
-
+        $this->allowedAdminAction(); 
         $category->update($request->all());
          
        return  $this->show_one($category);
@@ -60,8 +62,9 @@ class CategoryController extends ApiController
    
     public function destroy(Category $category)
     {
-         $category->delete();
-       return  $this->show_one($category);
+        $this->allowedAdminAction(); 
+        $category->delete();
+        return  $this->show_one($category);
     }
     
 }

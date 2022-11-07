@@ -12,6 +12,12 @@ use Illuminate\Support\Facades\Storage;
 class SellerProductController extends ApiController
 {
    
+  public function __construct()
+  {
+    $this->middleware('can,delete-product,seller')->only('index');
+      
+  }
+
     public function index(Seller $seller )
     {
         $products = $seller->products; 

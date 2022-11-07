@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class TransactionSellerController extends ApiController
 {
+    
+    public function __construct()
+    {
+        $this->middleware('can,view,transaction')->only('index');
+    }
    
     public function index(Transaction $transaction)
     {

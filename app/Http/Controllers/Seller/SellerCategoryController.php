@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class SellerCategoryController extends ApiController
 {
+    public function __construct()
+    {
+        $this->middleware('can,view,seller')->only('index');
+
+    }
    
     public function index(Seller $seller)
     {

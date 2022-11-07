@@ -12,6 +12,13 @@ use App\Http\Requests\ProductBuyerTransactionRequest;
 
 class ProductBuyerTransactionController extends ApiController
 {
+    
+    public function __construct()
+    {
+        $this->middleware('scope:purchase-product')->only('store');
+        $this->middleware('can:purchase,buyer')->only('store');
+
+    }
    
    
     public function store(ProductBuyerTransactionRequest $request,Product $product,User $buyer)

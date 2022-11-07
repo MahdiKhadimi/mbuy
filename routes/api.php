@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Buyer\BuyerController;
 use App\Http\Controllers\Seller\SellerController;
@@ -21,6 +22,7 @@ use App\Http\Controllers\Product\ProductCategoryController;
 use App\Http\Controllers\Transaction\TransactionController;
 use App\Http\Controllers\Category\CategoryProductController;
 use App\Http\Controllers\Seller\SellerTransactionController;
+use Laravel\Passport\Http\Controllers\AccessTokenController;
 use App\Http\Controllers\Product\ProductTransactionController;
 use App\Http\Controllers\Category\CategoryTransactionController;
 use App\Http\Controllers\Transaction\TransactionSellerController;
@@ -74,3 +76,11 @@ Route::apiResource('transactions.categories', TransactionCategoryController::cla
 Route::apiResource('transactions.sellers',TransactionSellerController::class)->only('index');
 Route::apiResource('buyers.transactions',BuyerTransactionController::class)->only('index');
 Route::apiResource('buyers.products',BuyerProductController::class)->only('index');
+
+route::get('login/form',[AuthController::class,'login_form'])->name('login');
+route::post('login',[AuthController::class,'login'])->name('login.logic');
+Route::post('register', [AuthController::class, 'register']);
+
+Route::post('oauth/token', [AccessTokenController::class,'issueToken']);
+
+// route::get('login',[AuthController::class,'login'])->name('login');

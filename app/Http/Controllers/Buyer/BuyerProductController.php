@@ -8,6 +8,12 @@ use App\Http\Controllers\Controller;
 
 class BuyerProductController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('can:view,buyer')->only('index');
+        
+    }
     public function index(Buyer $buyer)
     {
         $products = $buyer->transactions()->with('product')

@@ -4,7 +4,8 @@ namespace App\Models;
 
 
 use Illuminate\Support\Str;
-use Laravel\Sanctum\HasApiTokens;
+
+use Laravel\Passport\HasApiTokens;
 use App\Transformers\UserTransformer;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;

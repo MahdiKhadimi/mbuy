@@ -30,7 +30,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
     {
         $transformer =$data->first()->transformer;
 
-        // $data = $this->sort_data($data);
+        $data = $this->sort_data($data);
         $data = $this->paginate( $data);
         $data = $this->transform_data($data,$transformer);
         $data = $this->cache_response($data);
@@ -88,7 +88,7 @@ use Illuminate\Pagination\LengthAwarePaginator;
     protected function transform_data($data,$transformer)
     {
         $transformation = fractal($data,new $transformer);
-        
+         
         return $transformation->toArray();
        
     }

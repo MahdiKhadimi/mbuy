@@ -8,6 +8,12 @@ use App\Http\Controllers\ApiController;
 
 class BuyerCategoryController extends ApiController
 {
+    
+    public function __construct()
+    {
+        $this->middleware('can:view,buyer')->only('index');
+    }
+
    
     public function index(Buyer $buyer)
     {
