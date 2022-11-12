@@ -9,9 +9,9 @@
 
 ### About
 
-In this project laravel 9 with laravel-fractal, laravel-passport and guzzle are used, it is a shopping API that has created to manage all shopping process, at the first step user create account and system send email to the user email addrees this email use to verify user account, user can be seller or buyer.
-seller can register product in the system to sell that product once the product register in the system other users can buy the product, a transaction make when user buy a product.
-product_id, buyer_id, quantity and currency are registered in the transaction.
+In this project laravel 9 with laravel-fractal, laravel-passport and guzzle are used, it is a shopping API that has created to manage all shopping process, at the first step user creates account and system sends email to the user email addrees, this email use to verify user account, user can be seller or buyer.
+seller can register product in the system to sell product, once the product register in the system other users can buy the product, a transaction takes place when the user buys the product
+product_id, buyer_id, quantity and currency have registered in the transaction.
 
 ### Features
 
