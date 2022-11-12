@@ -1,4 +1,5 @@
 <h2 align='center'>Mbuy</h2>
+
 #### Table of contents
 
 -   [About](#about)
@@ -14,35 +15,35 @@ product_id, buyer_id, quantity and currency are registered in the transaction.
 
 ### Features
 
-|Creat Account By Users|
-|Users Verify Email Address|
-|User Restore Deleted Account Token |
-|CRUD (Create, Read, Update, Delete) Users Management|
-|Soft Deleted Users Management System|
-|CRUD (Create, Read, Update, Delete) Products Management|
-|Soft Deleted Products Management System|
-|CRUD (Create, Read, Update, Delete) Categories Management|
-|Soft Deleted Categories Management System|
-|Buyer Product Report|
-|Buyer Category Report|
-|Buyer Seller Report|
-|Buyer Transaction Report|
-|Category Buyer Report|
-|Category Seller Report|
-|Category Product Report|
-|Category Transaction Report|
-|Product Buyer Report|
-|Product Buyer Transaction Report|
-|Product Category Report|
-|Product Transaction Report|
-|Seller List And Seller Show|
-|Seller Buyer Report|
-|Seller Category Report|
-|Seller Product Report|
-|Seller Transaction Report|
-|Transaction Show And Transaction List|
-|Transaction Category Report|
-|Transaction Seller Report|
+-   Creat Account By Users
+-   Users Verify Email Address
+-   User Restore Deleted Account Token
+-   CRUD (Create, Read, Update, Delete) Users Management
+-   Soft Deleted Users Management System
+-   CRUD (Create, Read, Update, Delete) Products Management
+-   Soft Deleted Products Management System
+-   CRUD (Create, Read, Update, Delete) Categories Management
+-   Soft Deleted Categories Management System
+-   Buyer Product Report
+-   Buyer Category Report
+-   Buyer Seller Report
+-   Buyer Transaction Report
+-   Category Buyer Report
+-   Category Seller Report
+-   Category Product Report
+-   Category Transaction Report
+-   Product Buyer Report
+-   Product Buyer Transaction Report
+-   Product Category Report
+-   Product Transaction Report
+-   Seller List And Seller Show
+-   Seller Buyer Report
+-   Seller Category Report
+-   Seller Product Report
+-   Seller Transaction Report
+-   Transaction Show And Transaction List
+-   Transaction Category Report
+-   Transaction Seller Report
 
 ### Installation Instructions
 
