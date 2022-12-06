@@ -50,11 +50,13 @@ product_id, buyer_id, quantity and currency are registered in the transaction.
 1. Run `git clone https://github.com/MahdiKhadimi/mbuy`
 2. Create a MySQL database for the project
     - `create database mbuy;`
-3. From the projects root run `php artisan serve`
-4. Configure your `.env` file
-5. From the projects root folder run `php artisan migrate`
-6. From the projects root folder run `php artisan db:seed`
-7. From the projects root folder run `composer dump-autoload`
+3. Download dependency by run `composer install`
+
+4. From the projects root run `php artisan serve`
+5. Configure your `.env` file
+6. From the projects root folder run `php artisan migrate`
+7. From the projects root folder run `php artisan db:seed`
+8. From the projects root folder run `composer dump-autoload`
 
 ### Laravel Components In This Project
 
