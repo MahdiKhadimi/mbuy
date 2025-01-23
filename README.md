@@ -9,42 +9,14 @@
 
 ### About
 
-In this project laravel 9 with laravel-fractal, laravel-passport and guzzle have used, it is a shopping API that has created to manage all shopping process, at the first step user creates account and system sends email to the user, this email is used to verify user account, user can be seller or buyer.
-seller can register product in the system to sell product, once the product register in the system other users can buy the product, a transaction takes place when the user buys the product.
-product_id, buyer_id, quantity and currency are registered in the transaction.
-
-### Features
-
--   Creat Account By Users
--   Users Verify Email Address
--   User Restore Deleted Account Token
--   CRUD (Create, Read, Update, Delete) Users Management
--   Soft Deleted Users Management System
--   CRUD (Create, Read, Update, Delete) Products Management
--   Soft Deleted Products Management System
--   CRUD (Create, Read, Update, Delete) Categories Management
--   Soft Deleted Categories Management System
--   Buyer Product Report
--   Buyer Category Report
--   Buyer Seller Report
--   Buyer Transaction Report
--   Category Buyer Report
--   Category Seller Report
--   Category Product Report
--   Category Transaction Report
--   Product Buyer Report
--   Product Buyer Transaction Report
--   Product Category Report
--   Product Transaction Report
--   Seller List And Seller Show
--   Seller Buyer Report
--   Seller Category Report
--   Seller Product Report
--   Seller Transaction Report
--   Transaction Show And Transaction List
--   Transaction Category Report
--   Transaction Seller Report
-
+This project is a Shopping API built with Laravel 9, utilizing Laravel Fractal, Laravel Passport, and Guzzle for a robust and scalable architecture. The API facilitates the complete shopping process, including user management, product registration, and transactions.
+### Key Features:
+- 
+-   User Registration & Verification: Users can create accounts, and the system sends a verification email to activate their accounts.
+-   Seller & Buyer Roles: Users can register as sellers or buyers
+-   Product Management: Sellers can register products for sale within the system.
+-   Transaction Handling: Buyers can purchase products. Each transaction records the product_id, buyer_id, quantity, and currency.
+This API ensures a seamless and secure shopping experience, supporting user authentication, email verification, and role-based functionality.
 ### Installation Instructions
 
 1. Run `git clone https://github.com/MahdiKhadimi/mbuy`
