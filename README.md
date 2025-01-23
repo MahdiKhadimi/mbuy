@@ -11,7 +11,6 @@
 
 This project is a Shopping API built with Laravel 9, utilizing Laravel Fractal, Laravel Passport, and Guzzle for a robust and scalable architecture. The API facilitates the complete shopping process, including user management, product registration, and transactions.
 ### Key Features:
-- 
 -   User Registration & Verification: Users can create accounts, and the system sends a verification email to activate their accounts.
 -   Seller & Buyer Roles: Users can register as sellers or buyers
 -   Product Management: Sellers can register products for sale within the system.
